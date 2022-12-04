@@ -22,7 +22,7 @@ int maxSum(vector<vector<int> >& grid) {
     }
     return sum[H - 1][W - 1];
 }
-//-----------------------------------------
+
 int main() {
     ios::sync_with_stdio(0);    
     cin.tie(0);                 

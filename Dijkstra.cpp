@@ -15,7 +15,7 @@ struct edge {
     }
 };
 
-int dijkstra(vector<vector<edge> > &adj, int s, int t) {
+int dijkstra(vector<vector<edge> >& adj, int s, int t) {
     int n = adj.size();
     vector<int> dist(n, INT_MAX);
     priority_queue<edge> pq;

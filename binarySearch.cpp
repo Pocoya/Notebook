@@ -33,7 +33,7 @@ bool binary_iter(vector<int>& vec, int x) {
     }
     return false;
 }
-//---------------------------------------------------------------------
+
 
 int main() {
     ios_base::sync_with_stdio(false);   
