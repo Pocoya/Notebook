@@ -1,5 +1,7 @@
-# Algorithms
-Algorithms for CP, implemented by me, feel free to use.
+# Algorithms for CP
+
+Implemented by me, feel free to use.
+
 
 
 How to compile:
@@ -12,8 +14,7 @@ How to run:
 ./file
 ```
 
-Or if you have an input file
-
+Or if you have an input file:
 ```
 ./file < input
 ```
