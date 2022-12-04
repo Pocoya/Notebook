@@ -1,5 +1,5 @@
 # Algorithms
-Algorithms for CP
+Algorithms for CP, implemented by me, feel free to use.
 
 
 How to compile:
