@@ -24,7 +24,7 @@ ll sum(vector<ll>& fenwick, int i){
 }
 
 void add(vector<ll>& fenwick, int i, int val){
-    i++;
+    ++i;
     while(i < fenwick.size()){
         fenwick[i] += val;
         i += i & -i;
