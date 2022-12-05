@@ -14,7 +14,7 @@ inline ll get_int() {
     return s*r;
 }
 
-ll sum(vector<ll>& fenwick, int i){
+inline ll sum(vector<ll>& fenwick, int i){
     ll s = 0;
     while(i > 0){
         s += fenwick[i];
@@ -23,7 +23,7 @@ ll sum(vector<ll>& fenwick, int i){
     return s;
 }
 
-void add(vector<ll>& fenwick, int i, int val){
+inline void add(vector<ll>& fenwick, int i, int val){
     ++i;
     while(i < fenwick.size()){
         fenwick[i] += val;
@@ -38,18 +38,16 @@ int main() {
     int n, q;
     n = get_int();
     q = get_int();
-    vector<ll> vec(n + 1, 0);
+    vector<ll> vec(n + 1);
     for(int k = 0; k < q; ++k) {
         char c;
         c = getchar();
-        int i;
-        ll val;
         if(c == '+') {
-            i = get_int();
-            val = get_int();
+            int i = get_int();
+            ll val = get_int();
             add(vec, i, val);
         } else {
-            i = get_int();
+            int i = get_int();
             cout << sum(vec, i)<< '\n';
         }
     }
