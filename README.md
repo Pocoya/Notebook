@@ -1,4 +1,4 @@
-# Algorithms for CP
+# My notebook for CP
 
 Implemented by me, feel free to use.
 
