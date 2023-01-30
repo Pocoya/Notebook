@@ -6,7 +6,7 @@ Implemented by me, feel free to use.
 
 How to compile:
 ```
-g++ -std=c++11 file.cpp -o file
+g++ -std=c++17 file.cpp -o file
 ```
 
 How to run:
