@@ -1,6 +1,6 @@
 # My notebook for CP
 
-Implemented by me, feel free to use.
+Implemented by me, feel free to be inspired. (Plz no theft)
 
 
 
