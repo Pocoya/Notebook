@@ -1,56 +1,60 @@
 #include <bits/stdc++.h>
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <algorithm>
 
 using namespace std;
+const int INF = 1e9;
 
 struct edge {
-    int to;
-    int w;
-    edge(int to, int w) : to(to), w(w) {}
-    bool operator<(const edge &e) const {
-        return w > e.w;
+    int node, w;
+    edge(int node, int w) : node(node), w(w) {}
+
+    bool operator<(const edge& e) const {
+        return e.w < w;
     }
 };
 
-int dijkstra(vector<vector<edge> >& adj, int s, int t) {
-    int n = adj.size();
-    vector<int> dist(n, INT_MAX);
+vector<int> dijkstra(vector<vector<edge> >& adj, int s) {
     priority_queue<edge> pq;
-    dist[s] = 0;
-    pq.push(edge(s, 0));
+    vector<int> distance(adj.size(), INF);
+    pq.push({s, 0}); 
+    distance[s] = 0;
 
     while(!pq.empty()) {
-        edge e = pq.top();
+        edge cur = pq.top();
         pq.pop();
-        if(e.to == t) return e.w;
-        if(e.w > dist[e.to]) continue;
 
-        for(auto next : adj[e.to]) {
-            if(dist[next.to] > dist[e.to] + next.w) {
-                dist[next.to] = dist[e.to] + next.w;
-                pq.push(edge(next.to, dist[next.to]));
+        if(distance[cur.node] < cur.w) continue;
+        for(auto next: adj[cur.node]) {
+            if(distance[cur.node] + next.w < distance[next.node]) {
+                distance[next.node] = distance[cur.node] + next.w;
+                pq.push({next.node, distance[next.node]});
             }
+            
         }
     }
-    return dist[t];
+    return distance;
 }
-
 
 int main() {
-    ios::sync_with_stdio(0);    
+    ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int n, m, s, t;
-    cin >> n >> m >> s >> t;    
-    vector<vector<edge> > adj(n);
-    for(int i = 0; i < m; i++) {
-        int u, v, w;
-        cin >> u >> v >> w;
-        adj[u].push_back(edge(v, w));
-    }
+    int n, m, q, s;
+    while(cin >> n >> m >> q >> s && n != 0) {
+        vector<vector<edge> > adj(n);
+        for(int i = 0; i < m; ++i) {
+            int u, v, w;
+            cin >> u >> v >> w;
+            adj[u].push_back(edge(v, w));
+        }
 
-    cout << dijkstra(adj, s, t) << '\n';
+        vector<int> distance = dijkstra(adj, s);
+        for(int j = 0; j < q; ++j) {
+            int t;
+            cin >> t;
+            if(distance[t] == INF) cout << "Impossible\n" <<'\n';
+            else cout << distance[t]<<'\n';
+        }
+    }
 }
+
+//g++ -std=c++17 file.cpp -o file
