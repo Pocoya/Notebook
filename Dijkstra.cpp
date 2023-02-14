@@ -28,7 +28,6 @@ vector<int> dijkstra(vector<vector<edge> >& adj, int s) {
                 distance[next.node] = distance[cur.node] + next.w;
                 pq.push({next.node, distance[next.node]});
             }
-            
         }
     }
     return distance;
@@ -57,4 +56,4 @@ int main() {
     }
 }
 
-//g++ -std=c++17 file.cpp -o file
+//g++ -std=c++17 Dijkstra.cpp -o dijkstra
