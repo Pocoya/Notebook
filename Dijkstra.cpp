@@ -12,7 +12,7 @@ struct edge {
     }
 };
 
-vector<int> dijkstra(vector<vector<edge> >& adj, int s) {
+vector<int> dijkstra(vector<vector<edge>>& adj, int s) {
     priority_queue<edge> pq;
     vector<int> distance(adj.size(), INF);
     pq.push({s, 0}); 
@@ -39,7 +39,7 @@ int main() {
 
     int n, m, q, s;
     while(cin >> n >> m >> q >> s && n != 0) {
-        vector<vector<edge> > adj(n);
+        vector<vector<edge>> adj(n);
         for(int i = 0; i < m; ++i) {
             int u, v, w;
             cin >> u >> v >> w;
